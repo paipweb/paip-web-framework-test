@@ -1,0 +1,87 @@
+pwf
+{
+  min-height:100%;
+  height:auto;
+  width:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  background-color:#272727;
+  color:#FFFFFF;
+  font-size:110%;
+}
+pwf h1
+{
+  font-size:350%;
+}
+pwf h2
+{
+  font-size:300%;
+}
+pwf h3
+{
+  font-size:250%;
+}
+pwf h4
+{
+  font-size:200%;
+}
+pwf h5
+{
+  font-size:150%;
+}
+pwf h6
+{
+  font-size:100%;
+}
+pwf a, pwf a:hover, pwf a:visited
+{
+  color:#FFFFFF;
+  text-decoration:none;
+}
+pwf a:hover
+{
+  color:#CCCCCC;
+}
+pwf abbr
+{
+  text-decoration:none;
+}
+pwf button
+{
+  background-color:#0000FF;
+  color:#FFFFFF;
+  border-radius:10px;
+  border-color:#4444FF;
+}
+pwf code
+{
+  display:block;
+  background-color:#DDDDDD;
+  color:#000000;
+  width:auto;
+  height:auto;
+  border-radius:5px;
+  font-size:150%;
+  padding:5px;
+}
+pwf time
+{
+  font-style:italic;
+  font-weight:bold;
+}
+pwf address
+{
+  font-style:italic;
+}
+pwf article
+{
+  display:block;
+  background-color: #222222;
+  font-size:100%;
+}
+pwf article header
+{
+  text-align:center;
+  font-size:140%;
+}
