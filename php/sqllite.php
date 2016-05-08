@@ -4,9 +4,11 @@
  */
 class PAIP_SQLLITE
 {
+    //PAiP WEB FRAMEWORK VARS
+    private version = "v0.1 Alpha";
     ///SQL Lite Database API (From SQLite3 PHP Class)
-    $database;
-    function __construct($filename,$flag=0)
+    public $database;
+    public function __construct($filename,$flag=0)
     {
         $flags;
         try
@@ -39,18 +41,20 @@ class PAIP_SQLLITE
             die("Error!");
         }
     }
-    function query($sql_query)
+    public function query($sql_query)
     {
         return $database->query($sql_query);
     }
-    function close()
+    public function close()
     {
         return $database->close();
     }
     ///SQL Lite Query API
+    //PARAMETER "exec" || if exec = true then return result of query if no then return directive string
+    
     //CREATE QUERY
-    //type = S / def = Select | type = D / def = definition array
-    function CREATE($tablename,$type,$def,$ifne=false,$tmp=false)
+    //type = S / def = Select | type = D / def = definition string example: ( id integer primary key, name text)
+    public function CREATE($exec,$tablename,$type,$def,$ifne=false,$tmp=false)
     {
         $val_return = "CREATE ";
         if ($tmp) {
@@ -64,8 +68,15 @@ class PAIP_SQLLITE
             $val_return = $val_return."AS ".$def;
         }
         elseif ($type == "D" or $type == "d") {
-            $tt1 = trim($def,"Array");
-            $val_return = $val_return.$tt1;
+            $val_return = $val_return.$def;
+        }
+        if($exec == true)
+        {
+            return $this->query($val_return);
+        }
+        else
+        {
+            return  $val_return;
         }
     }
 }
