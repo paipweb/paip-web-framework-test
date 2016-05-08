@@ -157,7 +157,35 @@ class PAIP_SQLLITE
         }
         return $this->hf__aywte($exec,$val_return);
     }
-    
+    //UPDATE QUERY
+    //type = /|/ U = UPDATE |UOR = UPDATE OR REPLACE | UORB = UPDATE OR ROLLBACK | UOA = UPDATE OR ABORT | UOF = UPDATE OR FAIL | UOI = UPDATE OR IGNORE
+    public function UPDATE($exec,$tablename,$set,$where,$type="U",$index=null)
+    {
+        if (($type == "U") || ($type == "u")) {
+            $val_return = "UPDATE ";
+        }
+        elseif (($type == "UOR") || ($type == "uor")) {
+            $val_return = "UPDATE OR REPLACE ";
+        }
+        elseif (($type == "UORB") || ($type == "uorb")) {
+            $val_return = "UPDATE OR ROLLBACK ";
+        }
+        elseif (($type == "UOA") || ($type == "uoa")) {
+            $val_return = "UPDATE OR ABORT ";
+        }
+        elseif (($type == "UOF") || ($type == "uof")) {
+            $val_return = "UPDATE OR FAIL ";
+        }
+        elseif (($type == "UOI") || ($type == "uoi")) {
+            $val_return = "UPDATE OR IGNORE ";
+        }
+        $val_return = $val_return.$tablename." ";
+        if($index != null){
+            $val_return = $val_return.$index." ";
+        }
+        $val_return = $val_return."SET ".$set." WHERE ".$where;
+        return $this->hf__aywte($exec,$val_return);
+    }
 }
 ///NOT FINISHED!!!!!!!!!!!!!!!
 ?>
