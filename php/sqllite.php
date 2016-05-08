@@ -113,6 +113,51 @@ class PAIP_SQLLITE
         $val_return = $val_return.$tablename;
         return $this->hf__aywte($exec,$val_return);
     }
+    
+    ///DML - DATA MANIPULATION LANGUAGE
+    
+    //INSERT QUERY
+    //type = /|/ I = INSERT | R = REPLACE | IOR = INSERT OR REPLACE | IORB = INSERT OR ROLLBACK | IOA = INSERT OR ABORT | IOF = INSERT OR FAIL | IOI = INSERT OR IGNORE
+    //deftype = /|/ dv = DEFAULT VALUES | v = VALUES | s = SELECT directive
+    public function INSERT($exec,$tablename,$deftype="dv",$type="I",$def=null,$cols=null)
+    {
+        if (($type == "I") || ($type == "i")) {
+            $val_return = "INSERT ";
+        }
+        elseif (($type == "R") || ($type == "r")) {
+            $val_return = "REPLACE ";
+        }
+        elseif (($type == "IOR") || ($type == "ior")) {
+            $val_return = "INSERT OR REPLACE ";
+        }
+        elseif (($type == "IORB") || ($type == "iorb")) {
+            $val_return = "INSERT OR ROLLBACK ";
+        }
+        elseif (($type == "IOA") || ($type == "ioa")) {
+            $val_return = "INSERT OR ABORT ";
+        }
+        elseif (($type == "IOF") || ($type == "iof")) {
+            $val_return = "INSERT OR FAIL ";
+        }
+        elseif (($type == "IOI") || ($type == "ioi")) {
+            $val_return = "INSERT OR IGNORE ";
+        }
+        $val_return = $val_return."INTO ".$tablename." ";
+        if($cols != null){
+            $val_return = $val_return.$cols." ";
+        }
+        if (($type == "DV") || ($type == "dv")) {
+            $val_return = $val_return."DEFAULT VALUES";
+        }
+        elseif (($type == "V") || ($type == "v")) {
+            $val_return = $val_return."VALUES ".$def;
+        }
+        elseif (($type == "S") || ($type == "s")) {
+            $val_return = $val_return.$def;
+        }
+        return $this->hf__aywte($exec,$val_return);
+    }
+    
 }
 ///NOT FINISHED!!!!!!!!!!!!!!!
 ?>
