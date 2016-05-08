@@ -186,6 +186,17 @@ class PAIP_SQLLITE
         $val_return = $val_return."SET ".$set." WHERE ".$where;
         return $this->hf__aywte($exec,$val_return);
     }
+    //DELETE QUERY
+    public function DELETE($exec,$tablename,$where,$index=null)
+    {
+        $val_return = "DELETE FROM ";
+        $val_return = $val_return.$tablename." ";
+        if($index != null){
+            $val_return = $val_return.$index." ";
+        }
+        $val_return = $val_return." WHERE ".$where;
+        return $this->hf__aywte($exec,$val_return);
+    }
 }
 ///NOT FINISHED!!!!!!!!!!!!!!!
 ?>
