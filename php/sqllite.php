@@ -5,7 +5,7 @@
 class PAIP_SQLLITE
 {
     //PAiP WEB FRAMEWORK VARS
-    private version = "v0.1 Alpha";
+    private $version = "v0.1 Alpha";
     ///SQL Lite Database API (From SQLite3 PHP Class)
     public $database;
     public function __construct($filename,$flag=0)
@@ -36,7 +36,7 @@ class PAIP_SQLLITE
             }
             $database = new SQLite3($filename,$flags);
         }
-        catch ($error)
+        catch (Exception $error)
         {
             die("Error!");
         }
@@ -224,4 +224,5 @@ class PAIP_SQLLITE
     }
 }
 ///NOT TESTED!!!!!!!!!!!!!!!
+//DON'T WORKING (Testing on XAMPP / Windows)
 ?>
