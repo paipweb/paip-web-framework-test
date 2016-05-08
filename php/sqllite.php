@@ -49,6 +49,18 @@ class PAIP_SQLLITE
     {
         return $database->close();
     }
+    //Helping Functions
+    private function hf__aywte($exec,$val_return)
+    {
+        if($exec == true)
+        {
+            return $this->query($val_return);
+        }
+        else
+        {
+            return  $val_return;
+        }
+    }
     ///SQL Lite Query API
     //PARAMETER "exec" || if exec = true then return result of query if no then return directive string
     
@@ -72,14 +84,7 @@ class PAIP_SQLLITE
         elseif ($type == "D" or $type == "d") {
             $val_return = $val_return.$def;
         }
-        if($exec == true)
-        {
-            return $this->query($val_return);
-        }
-        else
-        {
-            return  $val_return;
-        }
+        return $this->hf__aywte($exec,$val_return);
     }
     //ALTER QUERY 
     //type = RT / def = new table name | type = A / def = add column definition | type = D / def column to delete
@@ -96,6 +101,17 @@ class PAIP_SQLLITE
         elseif (($type == "D") || ($type == "d")) {
             $val_return = $val_return." DROP ".$def;
         }
+        return $this->hf__aywte($exec,$val_return);
+    }
+    //DROP QUERY
+    public function DROP($exec,$tablename,$ife=false)
+    {
+        $val_return = "DROP TABLE ";
+        if ($ife == true) {
+            $val_return = $val_return." IF EXIST ";
+        }
+        $val_return = $val_return.$tablename;
+        return $this->hf__aywte($exec,$val_return);
     }
 }
 ///NOT FINISHED!!!!!!!!!!!!!!!
