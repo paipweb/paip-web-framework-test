@@ -197,6 +197,31 @@ class PAIP_SQLLITE
         $val_return = $val_return." WHERE ".$where;
         return $this->hf__aywte($exec,$val_return);
     }
+    
+    //DQL - DATA QUERY LANGUAGE
+    
+    //SELECT QUERY 
+    public function SELECT($exec,$from,$cols="*",$where=null,$orderby=null,$limit=null,$groupby=null,$having=null)
+    {
+        $val_return = "SELECT ";
+        $val_return = $val_return.$cols;
+        if ($where != null) {
+            $val_return = $val_return." WHERE ".$where;
+        }
+        if ($orderby != null) {
+            $val_return = $val_return." ORDER BY ".$orderby;
+        }
+        if ($limit != null) {
+            $val_return = $val_return." LIMIT ".$limit;
+        }
+        if ($groupby != null) {
+            $val_return = $val_return." GROUP BY ".$groupby;
+        }
+        if ($having != null) {
+            $val_return = $val_return." HAVING ".$having;
+        }
+        return $this->hf__aywte($exec,$val_return);
+    }
 }
-///NOT FINISHED!!!!!!!!!!!!!!!
+///NOT TESTED!!!!!!!!!!!!!!!
 ?>
