@@ -52,6 +52,8 @@ class PAIP_SQLLITE
     ///SQL Lite Query API
     //PARAMETER "exec" || if exec = true then return result of query if no then return directive string
     
+    ///DDL - DATA DEFINITION LANGUAGE
+    
     //CREATE QUERY
     //type = S / def = Select | type = D / def = definition string example: ( id integer primary key, name text)
     public function CREATE($exec,$tablename,$type,$def,$ifne=false,$tmp=false)
@@ -77,6 +79,22 @@ class PAIP_SQLLITE
         else
         {
             return  $val_return;
+        }
+    }
+    //ALTER QUERY 
+    //type = RT / def = new table name | type = A / def = add column definition | type = D / def column to delete
+    //type = /|/ RT = RENAME TO | A = ADD | D = DROP / KEYWORD COLUMN YOU HAVE TO ADD BY YOURSELF
+    public function ALTER($exec,$tablename,$type,$def)
+    {
+        $val_return = "ALTER TABLE ".$tablename." ";
+        if (($type == "RT") || ($type == "rt")) {
+            $val_return = $val_return." RENAME TO ".$def;
+        }
+        elseif (($type == "A") || ($type == "a")) {
+            $val_return = $val_return." ADD ".$def;
+        }
+        elseif (($type == "D") || ($type == "d")) {
+            $val_return = $val_return." DROP ".$def;
         }
     }
 }
