@@ -1,4 +1,6 @@
 <?php
+//Returning 2 elements array (first scripts, second styles)
+//Numbers are like from http://dev.paip.com.pl/ but 9 is Fullpage.jQuery , 10 is Fullpage.JS and after x+1 to 27 (28 and 29 don't added)
 function devpaipcompl_framework($framework)
 {
     $scripts = '';
@@ -153,5 +155,7 @@ function devpaipcompl_framework($framework)
         $scripts = ''; //<script src="http://dev.paip.com.pl/lib/m/" type="text/javascript"></script>
         $styles = ''; //<link rel="stylesheet" href="http://dev.paip.com.pl/lib/m/" type="text/css"/>
     }
+    $return = array($scripts, $styles);
+    return $return;
 }
 ?>
