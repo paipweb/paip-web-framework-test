@@ -1,0 +1,15 @@
+﻿<summary>
+Make a start of your HTML Website
+</summary>
+<param name="title">Title of website</param>
+<param name="author">Author of website</param>
+<param name="description">Description of Website (Search Engines using it as description)</param>
+<param name="keyword">Keywords of Website</param>
+<param name="copyright">Copyrights</param>
+<param name="index">OPTIONS are "ALL" as default it allowing to index your website in search engines | "NOINDEX" Search engines will not can index your site | "NOFOLLOW" Search engines will not follow by hyperlinks to your another pages | "NONE" Search Engines will not can index your site </param>
+<param name="lang">Language of site (in notation ISO 639-1 f.e. "pl")</param>
+<param name="last_modified">When you last modified this file? (in notation "D, d M Y H:i:s GMT"| you can use PHP function gmdate("D, d M Y H:i:s", filemtime($SCRIPT_FILENAME)) . " GMT");)</param>
+<param name="frames">Frameworks (CSS) and/or more meta tags</param>
+<param name="expires">When site expires</param>
+<param name="contact_email">Contact E-mail</param>
+<returns>Nothing just "echo"-ing HEAD section with opening html tag</returns>
